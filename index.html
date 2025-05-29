@@ -1,0 +1,1244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuard | Cybersecurity Solutions</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@300;400;500;600;700&family=Moul&family=Moulpali&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --danger: #ef4444;
+            --warning: #f59e0b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kantumruy Pro', sans-serif;
+            background-color: #0f172a;
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Moul', 'Kantumruy Pro', sans-serif;
+            font-weight: normal;
+        }
+
+        .model-font {
+            font-family: 'Moulpali', 'Moul', sans-serif;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            padding: 1rem 5%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo h1 {
+            font-size: 1.5rem;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 30% 50%, rgba(37, 99, 235, 0.2) 0%, rgba(15, 23, 42, 0.9) 70%);
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary-2 {
+            background: var(--primary);
+            color: white;
+            width: fit-content;
+            margin: auto;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 5%;
+            bottom: 0;
+            height: 80%;
+            z-index: -1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Features Section */
+        .section {
+            padding: 6rem 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 1.5rem;
+        }
+
+        .service-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-content p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .service-link i {
+            margin-left: 0.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .service-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .service-link:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Stats Section */
+        .stats {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 5rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 0 5%;
+        }
+
+        .stat-item {
+            padding: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Moul', sans-serif;
+        }
+
+        .stat-text {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            position: relative;
+        }
+
+        .testimonials::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial-card {
+            background: rgba(30, 41, 59, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            font-style: italic;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 2rem;
+            color: var(--primary);
+            opacity: 0.5;
+        }
+
+        .testimonial-text::before {
+            position: absolute;
+            top: -1rem;
+            left: -1rem;
+        }
+
+        .testimonial-text::after {
+            position: absolute;
+            bottom: -2rem;
+            right: -1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 1rem;
+            border: 3px solid var(--primary);
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-name {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .author-role {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--dark), #0f172a);
+            text-align: center;
+            padding: 6rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta p {
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: #0b1120;
+            padding: 5rem 5% 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--primary);
+        }
+
+        .footer-col p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-links a {
+            color: var(--light);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .footer-links a i {
+            font-size: 0.8rem;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-contact i {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(30, 41, 59, 0.8);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 30px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #334155;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(30px);
+        }
+
+        .language-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.3);
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero-image {
+                height: 60%;
+                opacity: 0.5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 1rem 5%;
+            }
+            
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background: rgba(15, 23, 42, 0.95);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 2rem;
+                transition: all 0.5s ease;
+                z-index: 999;
+            }
+            
+            nav.active {
+                left: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding-top: 100px;
+                text-align: center;
+            }
+            
+            .hero-content {
+                margin: 0 auto;
+            }
+            
+            .hero-btns {
+                justify-content: center;
+            }
+            
+            .hero-image {
+                display: none;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Khmer Language Styles */
+        body.khmer {
+            font-family: 'Kantumruy Pro', sans-serif;
+        }
+
+        body.khmer h1, 
+        body.khmer h2, 
+        body.khmer h3, 
+        body.khmer h4 {
+            font-family: 'Moul', 'Kantumruy Pro', sans-serif;
+        }
+
+        body.khmer .model-font {
+            font-family: 'Moulpali', 'Moul', sans-serif;
+        }
+
+        /* Hidden content for language toggle */
+        .lang-en {
+            display: block;
+        }
+
+        .lang-kh {
+            display: none;
+        }
+
+        body.khmer .lang-en {
+            display: none;
+        }
+
+        body.khmer .lang-kh {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="logo">
+            <img src="https://cdn-icons-png.flaticon.com/512/4744/4744315.png" alt="CyberGuard Logo">
+            <h1>Cyber<span>Guard</span></h1>
+        </div>
+        <nav id="nav">
+            <ul>
+                <li><a href="#home"><span class="lang-en">Home</span><span class="lang-kh">ទំព័រដើម</span></a></li>
+                <li><a href="#features"><span class="lang-en">Features</span><span class="lang-kh">លក្ខណៈពិសេស</span></a></li>
+                <li><a href="#services"><span class="lang-en">Services</span><span class="lang-kh">សេវាកម្ម</span></a></li>
+                <li><a href="#testimonials"><span class="lang-en">Testimonials</span><span class="lang-kh">សកម្មភាពអតិថិជន</span></a></li>
+                <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-kh">ទំនាក់ទំនង</span></a></li>
+            </ul>
+        </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1 class="lang-en">Protect Your Digital World with <span>Advanced Security</span></h1>
+            <h1 class="lang-kh">ការពារពិភពឌីជីថលរបស់អ្នកជាមួយ<span>សុវត្ថិភាពកម្រិតខ្ពស់</span></h1>
+            
+            <p class="lang-en">We provide cutting-edge cybersecurity solutions to safeguard your business from evolving threats in the digital landscape.</p>
+            <p class="lang-kh">យើងផ្តល់នូវដំណោះស្រាយសុវត្ថិភាពស៊ីប៊ឺដែលទាន់សម័យ ដើម្បីការពារអាជីវកម្មរបស់អ្នកពីការគំរាមកំហែងដែលអាចកើតមាននៅក្នុងពិភពឌីជីថល។</p>
+            
+            <div class="hero-btns">
+                <a href="#contact" class="btn btn-primary lang-en">Get Started</a>
+                <a href="#contact" class="btn btn-primary lang-kh">ចាប់ផ្តើម</a>
+                
+                <a href="#services" class="btn btn-outline lang-en">Learn More</a>
+                <a href="#services" class="btn btn-outline lang-kh">ស្វែងយល់បន្ថែម</a>
+            </div>
+        </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/2092/2092663.png" alt="Cybersecurity Illustration" class="hero-image" data-aos="fade-left" data-aos-duration="1000">
+    </section>
+
+    <!-- Features Section -->
+    <section class="section" id="features">
+        <div class="section-title" data-aos="fade-up">
+            <h2 class="lang-en">Our <span>Features</span></h2>
+            <h2 class="lang-kh">លក្ខណៈពិសេស<span>របស់យើង</span></h2>
+            
+            <p class="lang-en">Discover the powerful features that make our cybersecurity solutions stand out from the competition.</p>
+            <p class="lang-kh">ស្វែងយល់ពីលក្ខណៈពិសេសដ៏មានឥទ្ធិពលដែលធ្វើឱ្យដំណោះស្រាយសុវត្ថិភាពស៊ីប៊ឺរបស់យើងខុសពីក្រុមហ៊ុនផ្សេងៗ។</p>
+        </div>
+        
+        <div class="features-grid">
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="feature-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="lang-en">Advanced Threat Protection</h3>
+                <h3 class="lang-kh">ការការពារពីការគំរាមកំហែងកម្រិតខ្ពស់</h3>
+                
+                <p class="lang-en">Real-time protection against malware, ransomware, and zero-day threats with our AI-powered security system.</p>
+                <p class="lang-kh">ការការពារជាពេលវេលាពិតប្រឆាំងនឹងមេរោគ, ransomware និងការគំរាមកំហែង zero-day ជាមួយនឹងប្រព័ន្ធសុវត្ថិភាពដែលដំណើរការដោយ AI របស់យើង។</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="feature-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3 class="lang-en">Data Encryption</h3>
+                <h3 class="lang-kh">ការសម្ងាត់ទិន្នន័យ</h3>
+                
+                <p class="lang-en">Military-grade encryption to protect your sensitive data both in transit and at rest from unauthorized access.</p>
+                <p class="lang-kh">ការសម្ងាត់កម្រិតយោធាដើម្បីការពារទិន្នន័យរបស់អ្នកទាំងក្នុងពេលផ្ទេរ និងពេលសំរាក ពីការចូលប្រើប្រាស់ដោយគ្មានការអនុញ្ញាត។</p>
+            </div>
+            
+            <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="feature-icon">
+                    <i class="fas fa-user-shield"></i>
+                </div>
+                <h3 class="lang-en">Identity Protection</h3>
+                <h3 class="lang-kh">ការការពារអត្តសញ្ញាណ</h3>
+                
+                <p class="lang-en">Multi-factor authentication and identity verification to prevent unauthorized access to your accounts.</p>
+                <p class="lang-kh">ការផ្ទៀងផ្ទាត់អត្តសញ្ញាណច្រើនកម្រិត ដើម្បីបង្ការការចូលប្រើប្រាស់គណនីរបស់អ្នកដោយគ្មានការអនុញ្ញាត។</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section" id="services">
+        <div class="section-title" data-aos="fade-up">
+            <h2 class="lang-en">Our <span>Services</span></h2>
+            <h2 class="lang-kh">សេវាកម្ម<span>របស់យើង</span></h2>
+            
+            <p class="lang-en">Comprehensive cybersecurity services tailored to meet your specific business needs.</p>
+            <p class="lang-kh">សេវាកម្មសុវត្ថិភាពស៊ីប៊ឺដែលត្រូវបានរៀបចំសម្រាប់តម្រូវការអាជីវកម្មជាក់លាក់របស់អ្នក។</p>
+        </div>
+        
+        <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Security Assessment">
+                </div>
+                <div class="service-content">
+                    <h3 class="lang-en">Security Assessment</h3>
+                    <h3 class="lang-kh">ការវាយតម្លៃសុវត្ថិភាព</h3>
+                    
+                    <p class="lang-en">Identify vulnerabilities in your systems and networks before attackers can exploit them.</p>
+                    <p class="lang-kh">កំណត់គុណវិបត្តិនៅក្នុងប្រព័ន្ធ និងបណ្តាញរបស់អ្នក មុនពេលដែលអ្នកវាយប្រហារអាចធ្វើការបំពាន។</p>
+                    
+                    <a href="#" class="service-link lang-en">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="service-link lang-kh">ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Managed Security">
+                </div>
+                <div class="service-content">
+                    <h3 class="lang-en">Managed Security</h3>
+                    <h3 class="lang-kh">សុវត្ថិភាពដែលគ្រប់គ្រង</h3>
+                    
+                    <p class="lang-en">24/7 monitoring and management of your security infrastructure by our expert team.</p>
+                    <p class="lang-kh">ការត្រួតពិនិត្យ និងគ្រប់គ្រងហេដ្ឋារចនាសម្ព័ន្ធសុវត្ថិភាពរបស់អ្នកជារៀងរាល់ 24/7 ដោយក្រុមអ្នកជំនាញរបស់យើង។</p>
+                    
+                    <a href="#" class="service-link lang-en">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="service-link lang-kh">ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-img">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Incident Response">
+                </div>
+                <div class="service-content">
+                    <h3 class="lang-en">Incident Response</h3>
+                    <h3 class="lang-kh">ការឆ្លើយតបនឹងឧប្បត្តិហេតុ</h3>
+                    
+                    <p class="lang-en">Rapid response and recovery services to minimize damage from security breaches.</p>
+                    <p class="lang-kh">សេវាកម្មឆ្លើយតប និងស្តារឡើងវិញយ៉ាងឆាប់រហ័ស ដើម្បីបន្ថយការខូចខាតពីការបំពានសុវត្ថិភាព។</p>
+                    
+                    <a href="#" class="service-link lang-en">Learn More <i class="fas fa-arrow-right"></i></a>
+                    <a href="#" class="service-link lang-kh">ស្វែងយល់បន្ថែម <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="stat-number" data-count="100">0</div>
+                <div class="stat-text lang-en">Happy Clients</div>
+                <div class="stat-text lang-kh">អតិថិជនរីករាយ</div>
+            </div>
+            
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="stat-number" data-count="24">0</div>
+                <div class="stat-text lang-en">/7 Support</div>
+                <div class="stat-text lang-kh">/7 គាំទ្រ</div>
+            </div>
+            
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="stat-number" data-count="99">0</div>
+                <div class="stat-text lang-en">% Uptime</div>
+                <div class="stat-text lang-kh">% ពេលដំណើរការ</div>
+            </div>
+            
+            <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="stat-number" data-count="50">0</div>
+                <div class="stat-text lang-en">Experts Team</div>
+                <div class="stat-text lang-kh">ក្រុមអ្នកជំនាញ</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section testimonials" id="testimonials">
+        <div class="section-title" data-aos="fade-up">
+            <h2 class="lang-en">What Our <span>Clients Say</span></h2>
+            <h2 class="lang-kh">អ្វីដែល<span>អតិថិជន</span>របស់យើងនិយាយ</h2>
+            
+            <p class="lang-en">Hear from our satisfied clients about their experience with our cybersecurity services.</p>
+            <p class="lang-kh">ស្តាប់ពីអតិថិជនដែលពេញចិត្តរបស់យើងអំពីបទពិសោធន៍របស់ពួកគេជាមួយសេវាកម្មសុវត្ថិភាពស៊ីប៊ឺរបស់យើង។</p>
+        </div>
+        
+        <div class="testimonial-slider" data-aos="fade-up">
+            <div class="testimonial-card">
+                <div class="testimonial-text lang-en">
+                    CyberGuard's security solutions have been instrumental in protecting our sensitive data. Their team is highly professional and responsive to our needs.
+                </div>
+                <div class="testimonial-text lang-kh">
+                    ដំណោះស្រាយសុវត្ថិភាពរបស់ CyberGuard បានជួយការពារទិន្នន័យរបស់យើងយ៉ាងខ្លាំង។ ក្រុមរបស់ពួកគេមានវិជ្ជាជំនាញខ្ពស់ និងឆ្លើយតបនឹងតម្រូវការរបស់យើង។
+                </div>
+                
+                <div class="testimonial-author">
+                    <div class="author-img">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John Smith">
+                    </div>
+                    <div class="author-name">John Smith</div>
+                    <div class="author-role lang-en">CEO, TechSolutions Inc.</div>
+                    <div class="author-role lang-kh">អគ្គនាយក, TechSolutions Inc.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="section-title" data-aos="fade-up">
+            <h2 class="lang-en">Ready to <span>Secure Your Business?</span></h2>
+            <h2 class="lang-kh">ត្រៀមខ្លួនដើម្បី<span>ការពារអាជីវកម្មរបស់អ្នក?</span></h2>
+            
+            <p class="lang-en">Contact us today for a free consultation and let our experts assess your security needs.</p>
+            <p class="lang-kh">ទាក់ទងមកយើងខ្ញុំថ្ងៃនេះសម្រាប់ការពិគ្រោះយោបល់ដោយឥតគិតថ្លៃ ហើយអនុញ្ញាតឱ្យអ្នកជំនាញរបស់យើងវាយតម្លៃតម្រូវការសុវត្ថិភាពរបស់អ្នក។</p>
+        </div>
+        
+        <div data-aos="fade-up" data-aos-delay="100">
+            <a href="#" class="btn btn-primary btn-primary-2 lang-en">Get Free Consultation</a>
+            <a href="#" class="btn btn-primary btn-primary-2 lang-kh">ទទួលការពិគ្រោះយោបល់ដោយឥតគិតថ្លៃ</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="100">
+                <div class="logo">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4744/4744315.png" alt="CyberGuard Logo" style="height: 30px;">
+                    <h3>Cyber<span>Guard</span></h3>
+                </div>
+                <p class="lang-en">Advanced cybersecurity solutions to protect your digital assets from evolving threats.</p>
+                <p class="lang-kh">ដំណោះស្រាយសុវត្ថិភាពស៊ីប៊ឺរកម្រិតខ្ពស់ ដើម្បីការពារទ្រព្យសម្បត្តិឌីជីថលរបស់អ្នកពីការគំរាមកំហែង។</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="lang-en">Quick Links</h3>
+                <h3 class="lang-kh">តំណភ្ជាប់រហ័ស</h3>
+                
+                <ul class="footer-links">
+                    <li><a href="#home"><i class="fas fa-chevron-right"></i> <span class="lang-en">Home</span><span class="lang-kh">ទំព័រដើម</span></a></li>
+                    <li><a href="#features"><i class="fas fa-chevron-right"></i> <span class="lang-en">Features</span><span class="lang-kh">លក្ខណៈពិសេស</span></a></li>
+                    <li><a href="#services"><i class="fas fa-chevron-right"></i> <span class="lang-en">Services</span><span class="lang-kh">សេវាកម្ម</span></a></li>
+                    <li><a href="#testimonials"><i class="fas fa-chevron-right"></i> <span class="lang-en">Testimonials</span><span class="lang-kh">សកម្មភាពអតិថិជន</span></a></li>
+                    <li><a href="#contact"><i class="fas fa-chevron-right"></i> <span class="lang-en">Contact</span><span class="lang-kh">ទំនាក់ទំនង</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                <h3 class="lang-en">Services</h3>
+                <h3 class="lang-kh">សេវាកម្ម</h3>
+                
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-en">Security Assessment</span><span class="lang-kh">ការវាយតម្លៃសុវត្ថិភាព</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-en">Managed Security</span><span class="lang-kh">សុវត្ថិភាពដែលគ្រប់គ្រង</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-en">Incident Response</span><span class="lang-kh">ការឆ្លើយតបនឹងឧប្បត្តិហេតុ</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-en">Cloud Security</span><span class="lang-kh">សុវត្ថិភាពពពក</span></a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> <span class="lang-en">Compliance</span><span class="lang-kh">ការអនុលោមតាម</span></a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                <h3 class="lang-en">Contact Us</h3>
+                <h3 class="lang-kh">ទំនាក់ទំនងយើងខ្ញុំ</h3>
+                
+                <div class="footer-contact">
+                    <p><i class="fas fa-map-marker-alt"></i> <span class="lang-en">123 Security St, Phnom Penh, Cambodia</span><span class="lang-kh">១២៣ ផ្លូវសុវត្ថិភាព, ភ្នំពេញ, កម្ពុជា</span></p>
+                    <p><i class="fas fa-phone-alt"></i> <span>+855 12 345 678</span></p>
+                    <p><i class="fas fa-envelope"></i> <span>info@cyberguard.com</span></p>
+                    <p><i class="fas fa-clock"></i> <span class="lang-en">Mon-Fri: 8AM - 5PM</span><span class="lang-kh">ច័ន្ទ-សុក្រ៖ ៨ព្រឹក-៥ល្ងាច</span></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p class="lang-en">2025 - All rights reserved. Provided by Mr. Phekdey PHORN</p>
+            <p class="lang-kh">2025 - រក្សារ​សិទ្ធិ​គ្រប់​យ៉ាង ដោយលោក ផន ភក្ដី។</p>
+        </div>
+    </footer>
+
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <span class="language-label lang-en">EN</span>
+        <label class="toggle-switch">
+            <input type="checkbox" id="languageToggle">
+            <span class="slider"></span>
+        </label>
+        <span class="language-label lang-kh">KH</span>
+    </div>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS Animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = nav.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a nav link
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (nav.classList.contains('active')) {
+                    nav.classList.remove('active');
+                    mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('active');
+            } else {
+                backToTop.classList.remove('active');
+            }
+        });
+
+        // Language toggle
+        const languageToggle = document.getElementById('languageToggle');
+        languageToggle.addEventListener('change', () => {
+            document.body.classList.toggle('khmer');
+        });
+
+        // Counter animation for stats
+        const counters = document.querySelectorAll('.stat-number');
+        const speed = 200;
+        
+        function animateCounters() {
+            counters.forEach(counter => {
+                const target = +counter.getAttribute('data-count');
+                const count = +counter.innerText;
+                const increment = target / speed;
+                
+                if (count < target) {
+                    counter.innerText = Math.ceil(count + increment);
+                    setTimeout(animateCounters, 1);
+                } else {
+                    counter.innerText = target;
+                }
+            });
+        }
+        
+        // Start counter animation when stats section is in view
+        const statsSection = document.querySelector('.stats');
+        const observer = new IntersectionObserver((entries) => {
+            if (entries[0].isIntersecting) {
+                animateCounters();
+                observer.unobserve(statsSection);
+            }
+        }, { threshold: 0.5 });
+        
+        observer.observe(statsSection);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
